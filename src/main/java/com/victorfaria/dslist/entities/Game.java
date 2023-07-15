@@ -19,24 +19,28 @@ public class Game {
 	@Column(name = "game_year")
 	private Integer year;
 	private String genre;
-	private String plataforms;
+	private String platforms;
 	private double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
+	
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 
 public Game() {
 	
 }
 
-public Game(Long id, String title, Integer year, String genre, String plataforms, double score, String imgUrl,
+public Game(Long id, String title, Integer year, String genre, String platforms, double score, String imgUrl,
 		String shortDescription, String longDescription) {
 	super();
 	this.id = id;
 	this.title = title;
 	this.year = year;
 	this.genre = genre;
-	this.plataforms = plataforms;
+	this.platforms = platforms;
 	this.score = score;
 	this.imgUrl = imgUrl;
 	this.shortDescription = shortDescription;
@@ -76,11 +80,11 @@ public void setGenre(String genre) {
 }
 
 public String getPlataforms() {
-	return plataforms;
+	return platforms;
 }
 
-public void setPlataforms(String plataforms) {
-	this.plataforms = plataforms;
+public void setPlataforms(String platforms) {
+	this.platforms = platforms;
 }
 
 public double getScore() {
@@ -117,7 +121,7 @@ public void setLongDescription(String longDescription) {
 
 @Override
 public int hashCode() {
-	return Objects.hash(genre, id, imgUrl, longDescription, plataforms, score, shortDescription, title, year);
+	return Objects.hash(genre, id, imgUrl, longDescription, platforms, score, shortDescription, title, year);
 }
 
 @Override
@@ -130,7 +134,7 @@ public boolean equals(Object obj) {
 		return false;
 	Game other = (Game) obj;
 	return Objects.equals(genre, other.genre) && Objects.equals(id, other.id) && Objects.equals(imgUrl, other.imgUrl)
-			&& Objects.equals(longDescription, other.longDescription) && Objects.equals(plataforms, other.plataforms)
+			&& Objects.equals(longDescription, other.longDescription) && Objects.equals(platforms, other.platforms)
 			&& Double.doubleToLongBits(score) == Double.doubleToLongBits(other.score)
 			&& Objects.equals(shortDescription, other.shortDescription) && Objects.equals(title, other.title)
 			&& Objects.equals(year, other.year);
