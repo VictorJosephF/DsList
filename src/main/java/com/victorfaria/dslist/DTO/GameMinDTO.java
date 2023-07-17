@@ -1,6 +1,7 @@
 package com.victorfaria.dslist.DTO;
 
 import com.victorfaria.dslist.entities.Game;
+import com.victorfaria.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 		private Long id;
@@ -41,6 +42,12 @@ public class GameMinDTO {
 		return shortDescription;
 	}
 	
-	
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+	}
 	
 }
